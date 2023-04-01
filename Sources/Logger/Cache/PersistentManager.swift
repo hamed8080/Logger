@@ -29,7 +29,7 @@ public final class PersistentManager {
     }
 
     lazy var modelFile: NSManagedObjectModel = {
-        guard let modelURL = Bundle.module.url(forResource: baseModelFileName, withExtension: "momd") else { fatalError("Couldn't find the mond file!") }
+        guard let modelURL = Bundle.moduleBundle.url(forResource: baseModelFileName, withExtension: "momd") else { fatalError("Couldn't find the mond file!") }
         guard let mom = NSManagedObjectModel(contentsOf: modelURL) else { fatalError("Error initializing mom from: \(modelURL)") }
         return mom
     }()

@@ -73,7 +73,7 @@ public final class Logger {
 
     private func startSending() {
         if config.persistLogsOnServer == false { return }
-        timer.scheduledTimer(interval: 5, repeats: true) { [weak self] timer in
+        timer.scheduledTimer(interval: config.sendLogInterval, repeats: true) { [weak self] timer in
             if let bgTask = self?.persistentManager.newBgTask(), let self = self, timer.isValid {
                 CDLog.firstLog(self, bgTask) { log in
                     if let log = log {

@@ -2,7 +2,6 @@
 ### An unified logging system for iOS and macOS with internal caching system as well as server replication support.
 <img src="https://github.com/hamed8080/logger/raw/main/images/icon.png"  width="64" height="64">
 <br />
-<br />
 
 ## Features
 
