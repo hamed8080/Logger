@@ -1,15 +1,16 @@
 # Logger
+### An unified logging system for iOS and macOS with internal caching system as well as server replication support.
 <img src="https://github.com/hamed8080/logger/raw/main/images/icon.png"  width="64" height="64">
 <br />
 <br />
 
-Logger - iOS SDK
 ## Features
 
 - [x] Simplify logging by taking advantage of logging on a delegate or a server.
 - [x] Mechanism to distinguish the type of the logs.
 - [x] Caching logs on an internal core data storage.
 - [x] Queue sending of logs to the server.
+<br/>
 
 ## Installation
 
@@ -28,12 +29,13 @@ Add in `Podfile`:
 ```ruby
 pod 'Logger'
 ```
+<br/>
 
-## How to use? 
+## How to setup? 
 
 ```swift
 let config = LoggerConfig(
- prefix: "ASYNC_SDK",
+ prefix: "YOUR_PREFIX",
  logServerURL: "YOUR_SERVER_ADDRESS",
  logServerMethod: "PUT",
  persistLogsOnServer: true,
@@ -43,12 +45,11 @@ let logger = Logger(config: config)
 logger.delegate = delegate
 ```
 
-## Usage 
+## How to use? 
 ```swift
 logger.log(title: "YOUR_TITLE", message: "YOUR_MESSAGE", persist: true, type: .internalLog)
 logger.logJSON(title: "YOUR_TITLE", jsonString: "[{"name": "hamed"}]", persist: false, type: .received)
 ```
-<br/>
 <br/>
 
 ## [Documentation](https://hamed8080.gitlab.io/logger/documentation/logger/)
