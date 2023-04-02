@@ -6,6 +6,7 @@
 
 import CoreData
 import Foundation
+import Additive
 
 public final class Logger {
     public var delegate: LogDelegate?
@@ -23,7 +24,7 @@ public final class Logger {
     }
 
     public func logJSON(title: String? = nil, jsonString: String? = nil, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        log(message: "\(config.prefix)\(title ?? "")\(jsonString != nil ? "\n" : "")\(jsonString?.preetyJsonString() ?? "")", persist: persist, type: type, userInfo: userInfo)
+        log(message: "\(config.prefix)\(title ?? "")\(jsonString != nil ? "\n" : "")\(jsonString?.prettyJsonString() ?? "")", persist: persist, type: type, userInfo: userInfo)
     }
 
     public func log(title: String? = nil, message: String? = nil, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
