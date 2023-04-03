@@ -1,10 +1,8 @@
-
 Pod::Spec.new do |s|
-
   s.name         = "Logger"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Logger SDK"
-  s.description  = "Logging on a server or device in a unified manner."
+  s.description  = "Logging on a log server or device in a unified manner."
   s.homepage     = "http://pubgi.fanapsoft.ir/chat/ios/logger"
   s.license      = "MIT"
   s.author       = { "Hamed Hosseini" => "hamed8080@gmail.com" }
@@ -14,5 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = "Sources/Logger/**/*.{h,swift,xcdatamodeld,m,momd}"
   s.resources = "Sources/Logger/Resources/*.xcdatamodeld"
   s.frameworks  = "Foundation" , "CoreData"
-
+  s.dependency "Additive" , '~> 1.0.0'
 end

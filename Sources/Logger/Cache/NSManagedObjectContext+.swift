@@ -4,7 +4,6 @@
 //
 // Created by Hamed Hosseini on 12/14/22
 
-
 import CoreData
 extension NSManagedObjectContext {
     func perform(_ logger: Logger, _ block: @escaping () throws -> Void) {
