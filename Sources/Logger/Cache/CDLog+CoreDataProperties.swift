@@ -24,6 +24,7 @@ public extension CDLog {
         CDLog(entity: entityDescription(context), insertInto: context)
     }
 
+    @NSManaged var prefix: String?
     @NSManaged var userInfo: Data?
     @NSManaged var id: String?
     @NSManaged var level: NSNumber?
@@ -37,6 +38,7 @@ public extension CDLog {
     static let decoder = JSONDecoder()
 
     func update(_ log: Log) {
+        prefix = log.prefix
         id = log.id.uuidString
         level = log.level?.rawValue as? NSNumber
         message = log.message
@@ -46,7 +48,8 @@ public extension CDLog {
     }
 
     var codable: Log {
-        Log(time: Date(timeIntervalSince1970: (time ?? 0).doubleValue),
+        Log(prefix: prefix,
+            time: Date(timeIntervalSince1970: (time ?? 0).doubleValue),
             message: message,
             level: LogLevel(rawValue: level?.intValue ?? 0),
             id: UUID(uuidString: id ?? "") ?? UUID(),
@@ -78,6 +81,19 @@ public extension CDLog {
             let cdLog = CDLog.insertEntity(context)
             cdLog.update(log)
             context.save(logger)
+        }
+    }
+
+    internal class func clear(prefix: String?) {
+        let persistentManager = PersistentManager()
+        let context = persistentManager.newBgTask()
+        context?.perform {
+            let req = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+            req.predicate = NSPredicate(format: "prefix == %@", prefix ?? "")
+            let batchREQ = NSBatchDeleteRequest(fetchRequest: req)
+            batchREQ.resultType = .resultTypeObjectIDs
+            _ = try? context?.execute(batchREQ)
+            try? context?.save()
         }
     }
 }

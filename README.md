@@ -51,6 +51,12 @@ logger.logJSON(title: "YOUR_TITLE", jsonString: "[{"name": "hamed"}]", persist: 
 ```
 <br/>
 
+## Clear Core data internal cache. 
+```swift
+Logger.clear(prefix: "YOUR_PREFIX")
+```
+<br/>
+
 ## [Documentation](https://hamed8080.gitlab.io/logger/documentation/logger/)
 For more information about how to use Logger visit [Documentation](https://hamed8080.gitlab.io/logger/documentation/logger/) 
 <br/>

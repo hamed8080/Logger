@@ -1,9 +1,9 @@
 //
-//  NSManagedObjectContext+.swift
-//  FanapPodChatSDK
+// NSManagedObjectContext+.swift
+// Copyright (c) 2022 Logger
 //
-//  Created by hamed on 3/1/23.
-//
+// Created by Hamed Hosseini on 12/14/22
+
 
 import CoreData
 extension NSManagedObjectContext {

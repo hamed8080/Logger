@@ -4,12 +4,12 @@
 //
 // Created by Hamed Hosseini on 12/14/22
 
+import Additive
 import CoreData
 import Foundation
-import Additive
 
 public final class Logger {
-    public var delegate: LogDelegate?
+    public weak var delegate: LogDelegate?
     private var config: LoggerConfig
     private var timer: TimerProtocol
     private var urlSession: URLSessionProtocol
@@ -24,11 +24,11 @@ public final class Logger {
     }
 
     public func logJSON(title: String? = nil, jsonString: String? = nil, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        log(message: "\(config.prefix)\(title ?? "")\(jsonString != nil ? "\n" : "")\(jsonString?.prettyJsonString() ?? "")", persist: persist, type: type, userInfo: userInfo)
+        log(message: "\(config.prefix): \(title ?? "")\(jsonString != nil ? "\n" : "")\(jsonString?.prettyJsonString() ?? "")", persist: persist, type: type, userInfo: userInfo)
     }
 
     public func log(title: String? = nil, message: String? = nil, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        log(message: "\(config.prefix)\(title ?? "")\(message != nil ? "\n" : "")\(message ?? "")", persist: persist, type: type, userInfo: userInfo)
+        log(message: "\(config.prefix): \(title ?? "")\(message != nil ? "\n" : "")\(message ?? "")", persist: persist, type: type, userInfo: userInfo)
     }
 
     public func logHTTPRequest(_ request: URLRequest, _ decodeType: String, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
@@ -58,6 +58,7 @@ public final class Logger {
 
     public func log(message: String, persist: Bool, level: LogLevel = .verbose, type: LogEmitter, userInfo: [String: String]? = nil) {
         let log = Log(
+            prefix: config.prefix,
             message: message,
             level: level,
             type: type,
@@ -115,5 +116,9 @@ public final class Logger {
     private func addLogToCache(_ log: Log) {
         guard let context = persistentManager.context else { return }
         CDLog.insert(self, context, [log])
+    }
+
+    public class func clear(prefix: String) {
+        CDLog.clear(prefix: prefix)
     }
 }

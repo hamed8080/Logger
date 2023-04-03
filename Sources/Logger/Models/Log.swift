@@ -15,6 +15,7 @@ public final class Log: Codable, Identifiable, Hashable {
         hasher.combine(id)
     }
 
+    public var prefix: String?
     public var time: Date?
     public var message: String?
     public var userInfo: [String: String]?
@@ -23,6 +24,7 @@ public final class Log: Codable, Identifiable, Hashable {
     public var type: LogEmitter?
 
     private enum CodingKeys: String, CodingKey {
+        case prefix
         case time
         case level
         case message
@@ -33,6 +35,7 @@ public final class Log: Codable, Identifiable, Hashable {
 
     public required init(from decoder: Decoder) throws {
         let container = try? decoder.container(keyedBy: CodingKeys.self)
+        prefix = try container?.decodeIfPresent(String.self, forKey: .prefix)
         id = UUID(uuidString: try container?.decodeIfPresent(String.self, forKey: .id) ?? "") ?? UUID()
         message = try container?.decodeIfPresent(String.self, forKey: .message)
         time = try container?.decodeIfPresent(Date.self, forKey: .time)
@@ -42,6 +45,7 @@ public final class Log: Codable, Identifiable, Hashable {
     }
 
     public init(
+        prefix: String? = nil,
         time: Date = Date(),
         message: String? = nil,
         level: LogLevel? = nil,
@@ -49,6 +53,7 @@ public final class Log: Codable, Identifiable, Hashable {
         type: LogEmitter?,
         userInfo: [String: String]? = nil
     ) {
+        self.prefix = prefix
         self.time = time
         self.message = message
         self.id = id
@@ -59,6 +64,7 @@ public final class Log: Codable, Identifiable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(prefix, forKey: .prefix)
         try container.encodeIfPresent(time, forKey: .time)
         try container.encodeIfPresent(id.uuidString, forKey: .id)
         try container.encodeIfPresent(message, forKey: .message)
