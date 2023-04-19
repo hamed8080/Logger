@@ -9,9 +9,14 @@ import CoreData
 /// TLDR 'Persistance Service Manager'
 public final class PersistentManager {
     let baseModelFileName = "Logger"
+    var container: NSPersistentContainer?
 
     init() {
-        loadContainer()
+        do {
+            try loadContainer()
+        } catch {
+            print(error)
+        }
     }
 
     var context: NSManagedObjectContext? {
@@ -21,23 +26,21 @@ public final class PersistentManager {
         return context
     }
 
-    func newBgTask() -> NSManagedObjectContext? {
+    var newBgTask: NSManagedObjectContext? {
         guard let bgTask = container?.newBackgroundContext() else { return nil }
         bgTask.name = "BGTASK"
         bgTask.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         return bgTask
     }
 
-    lazy var modelFile: NSManagedObjectModel = {
-        guard let modelURL = Bundle.moduleBundle.url(forResource: baseModelFileName, withExtension: "momd") else { fatalError("Couldn't find the mond file!") }
-        guard let mom = NSManagedObjectModel(contentsOf: modelURL) else { fatalError("Error initializing mom from: \(modelURL)") }
+    func modelFile() throws -> NSManagedObjectModel {
+        guard let modelURL = Bundle.moduleBundle.url(forResource: baseModelFileName, withExtension: "momd") else { throw LoggerError.momdFile }
+        guard let mom = NSManagedObjectModel(contentsOf: modelURL) else { throw LoggerError.modelFile }
         return mom
-    }()
+    }
 
-    var container: NSPersistentContainer?
-
-    func loadContainer() {
-        let container = NSPersistentContainer(name: "\(baseModelFileName)", managedObjectModel: modelFile)
+    func loadContainer() throws {
+        let container = NSPersistentContainer(name: "\(baseModelFileName)", managedObjectModel: try modelFile())
         container.loadPersistentStores { desc, error in
             if let error = error {
                 print("error load CoreData persistentstore des:\(desc) error: \(error)")
@@ -47,17 +50,13 @@ public final class PersistentManager {
         self.container = container
     }
 
-    func delete() {
+    func delete() throws {
         let storeCordinator = container?.persistentStoreCoordinator
-        guard let store = storeCordinator?.persistentStores.first, let url = store.url else { return }
-        do {
-            if #available(iOS 15.0, *) {
-                try storeCordinator?.destroyPersistentStore(at: url, type: .sqlite)
-            } else {
-                try storeCordinator?.destroyPersistentStore(at: url, ofType: NSSQLiteStoreType)
-            }
-        } catch {
-            print("Error to delete the database file: \(error.localizedDescription)")
+        guard let store = storeCordinator?.persistentStores.first, let url = store.url else { throw LoggerError.persistentStore }
+        if #available(iOS 15.0, *) {
+            try storeCordinator?.destroyPersistentStore(at: url, type: .sqlite)
+        } else {
+            try storeCordinator?.destroyPersistentStore(at: url, ofType: NSSQLiteStoreType)
         }
     }
 }

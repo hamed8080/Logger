@@ -18,7 +18,10 @@ let package = Package(
             targets: ["Logger"]),
     ],
     dependencies: [
-        .package(url: "http://pubgi.fanapsoft.ir/chat/ios/additive.git", exact: "1.0.0"),
+        .package(path: "../Additive"),
+        .package(path: "../Mocks"),
+//        .package(url: "http://pubgi.fanapsoft.ir/chat/ios/additive.git", exact: "1.0.0"),
+        //        .package(url: "http://pubgi.fanapsoft.ir/chat/ios/mocks.git", exact: "1.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -32,6 +35,6 @@ let package = Package(
         ),
         .testTarget(
             name: "LoggerTests",
-            dependencies: ["Logger"]),
+            dependencies: ["Logger", "Mocks"]),
     ]
 )

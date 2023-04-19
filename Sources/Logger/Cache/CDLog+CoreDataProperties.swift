@@ -84,9 +84,9 @@ public extension CDLog {
         }
     }
 
-    internal class func clear(prefix: String?) {
+    internal class func clear(prefix: String?, completion: (() -> Void)? = nil) {
         let persistentManager = PersistentManager()
-        let context = persistentManager.newBgTask()
+        let context = persistentManager.newBgTask
         context?.perform {
             let req = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
             req.predicate = NSPredicate(format: "prefix == %@", prefix ?? "")
@@ -94,6 +94,7 @@ public extension CDLog {
             batchREQ.resultType = .resultTypeObjectIDs
             _ = try? context?.execute(batchREQ)
             try? context?.save()
+            completion?()
         }
     }
 }

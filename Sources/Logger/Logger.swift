@@ -10,10 +10,10 @@ import Foundation
 
 public final class Logger {
     public weak var delegate: LogDelegate?
-    private var config: LoggerConfig
+    internal var config: LoggerConfig
     private var timer: TimerProtocol
     private var urlSession: URLSessionProtocol
-    private let persistentManager = PersistentManager()
+    internal let persistentManager = PersistentManager()
 
     public init(config: LoggerConfig, delegate: LogDelegate? = nil, timer: TimerProtocol = Timer(), urlSession: URLSessionProtocol = URLSession.shared) {
         self.config = config
@@ -23,40 +23,41 @@ public final class Logger {
         startSending()
     }
 
-    public func logJSON(title: String? = nil, jsonString: String? = nil, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        log(message: "\(config.prefix): \(title ?? "")\(jsonString != nil ? "\n" : "")\(jsonString?.prettyJsonString() ?? "")", persist: persist, type: type, userInfo: userInfo)
+    public func logJSON(title: String = "", jsonString: String = "", persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
+        createLog(message: "\(config.prefix): \(title)\(jsonString != "" ? "\n" : "")\(jsonString.prettyJsonString())", persist: persist, type: type, userInfo: userInfo)
     }
 
-    public func log(title: String? = nil, message: String? = nil, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        log(message: "\(config.prefix): \(title ?? "")\(message != nil ? "\n" : "")\(message ?? "")", persist: persist, type: type, userInfo: userInfo)
+    public func log(title: String = "", message: String = "", persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
+        createLog(message: "\(config.prefix): \(title)\(message != "" ? "\n" : "")\(message)", persist: persist, type: type, userInfo: userInfo)
     }
 
     public func logHTTPRequest(_ request: URLRequest, _ decodeType: String, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        var output = "\n"
-        output += "Start Of Request====\n"
-        output += " REST Request With Method:\(request.httpMethod ?? "") - url:\(request.url?.absoluteString ?? "")\n"
+        var output = "Start Of Request====\n"
+        output += " REST Request With Method:\(request.method.rawValue) - url:\(request.url?.absoluteString ?? "")\n"
         output += " With Headers:\(request.allHTTPHeaderFields?.debugDescription ?? "[]")\n"
-        output += " With HttpBody:\(String(data: request.httpBody ?? Data(), encoding: .utf8) ?? "nil")\n"
+        output += " With HttpBody:\(request.httpBody?.string ?? "nil")\n"
         output += " Expected DecodeType:\(decodeType)\n"
         output += "End Of Request====\n"
         output += "\n"
-        log(title: "", message: output, persist: persist, type: type, userInfo: userInfo)
+        log(message: output, persist: persist, type: type, userInfo: userInfo)
     }
 
     public func logHTTPResponse(_ data: Data?, _ response: URLResponse?, _ error: Error?, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        var output = "\n"
-        output += "Start Of Response====\n"
+        var output = "Start Of Response====\n"
         output += " REST Response For url:\(response?.url?.absoluteString ?? "")\n"
-        output += " With Data Result in Body:\(String(data: data ?? Data(), encoding: .utf8) ?? "nil")\n"
+        output += " With Data Result in Body:\(data?.utf8String ?? "nil")\n"
         output += "End Of Response====\n"
         output += "\n"
-        log(title: "", message: output, persist: persist, type: type, userInfo: userInfo)
-        if let error = error {
-            log(message: "\(error.localizedDescription) \n\(output)", persist: persist, level: .error, type: type, userInfo: userInfo)
+        output += "Error:\(error?.localizedDescription ?? "nil")"
+        if error != nil {
+            let output = "\(config.prefix): \n\(output)"
+            createLog(message: output, persist: persist, level: .error, type: type, userInfo: userInfo)
+        } else {
+            log(message: output, persist: persist, type: type, userInfo: userInfo)
         }
     }
 
-    public func log(message: String, persist: Bool, level: LogLevel = .verbose, type: LogEmitter, userInfo: [String: String]? = nil) {
+    public func createLog(message: String, persist: Bool, level: LogLevel = .verbose, type: LogEmitter, userInfo: [String: String]? = nil) {
         let log = Log(
             prefix: config.prefix,
             message: message,
@@ -76,7 +77,7 @@ public final class Logger {
     private func startSending() {
         if config.persistLogsOnServer == false { return }
         timer.scheduledTimer(interval: config.sendLogInterval, repeats: true) { [weak self] timer in
-            if let bgTask = self?.persistentManager.newBgTask(), let self = self, timer.isValid {
+            if let bgTask = self?.persistentManager.newBgTask, let self = self, timer.isValid {
                 CDLog.firstLog(self, bgTask) { log in
                     if let log = log {
                         self.sendLog(log: log, context: bgTask)
@@ -118,7 +119,7 @@ public final class Logger {
         CDLog.insert(self, context, [log])
     }
 
-    public class func clear(prefix: String) {
-        CDLog.clear(prefix: prefix)
+    public class func clear(prefix: String, completion: (() -> Void)? = nil) {
+        CDLog.clear(prefix: prefix, completion: completion)
     }
 }

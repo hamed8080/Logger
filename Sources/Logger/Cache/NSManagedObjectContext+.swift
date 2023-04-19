@@ -24,7 +24,7 @@ extension NSManagedObjectContext {
                 logger.log(message: "Saved successfully in Logger.", persist: false, type: .internalLog)
             } catch {
                 let nserror = error as NSError
-                logger.log(message: "An error has occurred in saving Logger.: \(nserror), \(nserror.userInfo)", persist: true, level: .error, type: .internalLog)
+                logger.createLog(message: "An error has occurred in saving Logger.: \(nserror), \(nserror.userInfo)", persist: true, level: .error, type: .internalLog)
             }
         } else {
             logger.log(message: "No changes has found in the context!", persist: false, type: .internalLog)
