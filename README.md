@@ -1,14 +1,13 @@
 # Logger
 ### An unified logging system for iOS and macOS with internal caching system as well as server replication support.
-<img src="https://github.com/hamed8080/logger/raw/main/images/icon.png"  width="64" height="64">
+<img src="https://github.com/hamed8080/logger/raw/main/images/icon.png"  width="164" height="164">
 <br />
 
 ## Features
-
-- [x] Simplify logging by taking advantage of logging on a delegate or a server.
-- [x] Mechanism to distinguish the type of the logs.
-- [x] Caching logs on an internal core data storage.
-- [x] Queue sending of logs to the server.
+- [x] Log on to a log server.
+- [x] Log on to a local cache.
+- [x] Schedule sending logs.
+- [x] Distinguish between types of logs such as(`Request`, `Response`, `Internal`).
 <br/>
 
 ## Installation
@@ -18,7 +17,7 @@
 Add in `Package.swift` or directly in `Xcode Project dependencies` section:
 
 ```swift
-.package(url: "https://github.com/hamed8080/logger.git", .upToNextMinor(from: "1.0.0")),
+.package(url: "https://github.com/hamed8080/logger.git", .upToNextMinor(from: "1.0.2")),
 ```
 
 #### [CocoaPods](https://cocoapods.org) 
@@ -26,7 +25,7 @@ Add in `Package.swift` or directly in `Xcode Project dependencies` section:
 Add in `Podfile`:
 
 ```ruby
-pod 'Logger'
+pod 'Logger', :git => 'http://pubgi.fanapsoft.ir/chat/ios/logger.git', :tag => '1.0.2'
 ```
 <br/>
 
@@ -57,8 +56,8 @@ Logger.clear(prefix: "YOUR_PREFIX")
 ```
 <br/>
 
-## [Documentation](https://hamed8080.gitlab.io/logger/documentation/logger/)
-For more information about how to use Logger visit [Documentation](https://hamed8080.gitlab.io/logger/documentation/logger/) 
+## [Documentation](https://hamed8080.github.io/logger/logger/documentation/logger/)
+For more information about how to use Logger visit [Documentation](https://hamed8080.github.io/logger/logger/documentation/logger/) 
 <br/>
 <br/>
 

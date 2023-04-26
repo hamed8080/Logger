@@ -16,4 +16,9 @@ jobs:
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode_14.2.app && /usr/bin/xcodebuild -version
       - name: Run Unit Tests
-        run: swift test | xcpretty && exit ${PIPESTATUS[0]}
+        run: ./unit+testing.sh
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+            token: ${{ secrets.CODECOV_TOKEN }}
+            xtra_args: --xs

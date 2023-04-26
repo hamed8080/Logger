@@ -12,20 +12,17 @@ let package = Package(
         .macCatalyst(.v13),
     ],
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "Logger",
             targets: ["Logger"]),
     ],
     dependencies: [
-        .package(path: "../Additive"),
-        .package(path: "../Mocks"),
-//        .package(url: "http://pubgi.fanapsoft.ir/chat/ios/additive.git", exact: "1.0.0"),
-        //        .package(url: "http://pubgi.fanapsoft.ir/chat/ios/mocks.git", exact: "1.0.0"),
+//        .package(path: "../Additive"),
+//        .package(path: "../Mocks"),
+        .package(url: "http://pubgi.fanapsoft.ir/chat/ios/additive.git", exact: "1.0.1"),
+        .package(url: "http://pubgi.fanapsoft.ir/chat/ios/mocks.git", exact: "1.0.1"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Logger",
             dependencies: [
@@ -35,6 +32,6 @@ let package = Package(
         ),
         .testTarget(
             name: "LoggerTests",
-            dependencies: ["Logger", "Mocks"]),
+            dependencies: ["Logger", .product(name: "Mocks", package: "mocks"), .product(name: "Additive", package: "additive")]),
     ]
 )
