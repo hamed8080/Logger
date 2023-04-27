@@ -1,8 +1,12 @@
 # ``Logger``
 
-Log all errors, warnings, and more in the local cache and then sync with your log server.
+@Metadata {
+   @PageImage(purpose: icon, source: "icon.png", alt: "App icon.")
+   @Available(iOS, introduced: "10.0")
+   @Available(macOS, introduced: "12")    
+}
 
-![icon](icon.png)
+Log all errors, warnings, and more in the local cache and then sync with your log server.
 
 ## Overview
 - [x] Log on to a log server.

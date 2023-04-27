@@ -1,5 +1,6 @@
 import XCTest
 import Mocks
+import Additive
 @testable import Logger
 
 final class LoggerTests: XCTestCase, LogDelegate {

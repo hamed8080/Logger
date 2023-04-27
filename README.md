@@ -1,7 +1,8 @@
 # Logger
-### An unified logging system for iOS and macOS with internal caching system as well as server replication support.
+
+<h5>An unified logging system for iOS and macOS with internal caching system as well as server replication support.</h5>
+
 <img src="https://github.com/hamed8080/logger/raw/main/images/icon.png"  width="164" height="164">
-<br />
 
 ## Features
 - [x] Log on to a log server.
@@ -56,9 +57,8 @@ Logger.clear(prefix: "YOUR_PREFIX")
 ```
 <br/>
 
-## [Documentation](https://hamed8080.github.io/logger/logger/documentation/logger/)
-For more information about how to use Logger visit [Documentation](https://hamed8080.github.io/logger/logger/documentation/logger/) 
-<br/>
+## [Documentation](https://hamed8080.github.io/logger/documentation/logger/)
+For more information about how to use Logger visit [Documentation](https://hamed8080.github.io/logger/documentation/logger/) 
 <br/>
 
 ## Contributing to Logger
