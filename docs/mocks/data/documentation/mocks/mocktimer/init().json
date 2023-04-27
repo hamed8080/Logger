@@ -1,0 +1,151 @@
+{
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Mocks\/documentation\/Mocks",
+        "doc:\/\/Mocks\/documentation\/Mocks\/MockTimer"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Mocks\/documentation\/Mocks\/MockTimer\/init()"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:5Mocks9MockTimerCACycfc",
+    "fragments" : [
+      {
+        "kind" : "identifier",
+        "text" : "init"
+      },
+      {
+        "kind" : "text",
+        "text" : "()"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Mocks"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Initializer",
+    "symbolKind" : "init",
+    "title" : "init()"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "iOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "init"
+            },
+            {
+              "kind" : "text",
+              "text" : "()"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/mocks\/mocktimer\/init()"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Mocks/documentation/Mocks": {
+  "abstract" : [
+    {
+      "text" : "Mocks is consist of protocols that force you to use them for injection in your classes for the soul of unit-testing.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/Mocks\/documentation\/Mocks",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Mocks",
+  "type" : "topic",
+  "url" : "\/documentation\/mocks"
+},
+"doc://Mocks/documentation/Mocks/MockTimer": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "MockTimer"
+    }
+  ],
+  "identifier" : "doc:\/\/Mocks\/documentation\/Mocks\/MockTimer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "MockTimer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "MockTimer",
+  "type" : "topic",
+  "url" : "\/documentation\/mocks\/mocktimer"
+},
+"doc://Mocks/documentation/Mocks/MockTimer/init()": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "()"
+    }
+  ],
+  "identifier" : "doc:\/\/Mocks\/documentation\/Mocks\/MockTimer\/init()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init()",
+  "type" : "topic",
+  "url" : "\/documentation\/mocks\/mocktimer\/init()"
+}
+}
+}

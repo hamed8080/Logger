@@ -1,0 +1,222 @@
+{
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Mocks\/documentation\/Mocks",
+        "doc:\/\/Mocks\/documentation\/Mocks\/MockURLSession"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Mocks\/documentation\/Mocks\/MockURLSession\/nextDataTask"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:5Mocks14MockURLSessionC12nextDataTaskAA0bceF0Cvp",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "var"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "nextDataTask"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:5Mocks22MockURLSessionDataTaskC",
+        "text" : "MockURLSessionDataTask"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Mocks"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "nextDataTask"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "iOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "var"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "nextDataTask"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/Mocks\/documentation\/Mocks\/MockURLSessionDataTask",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:5Mocks22MockURLSessionDataTaskC",
+              "text" : "MockURLSessionDataTask"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/mocks\/mockurlsession\/nextdatatask"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Mocks/documentation/Mocks": {
+  "abstract" : [
+    {
+      "text" : "Mocks is consist of protocols that force you to use them for injection in your classes for the soul of unit-testing.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/Mocks\/documentation\/Mocks",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Mocks",
+  "type" : "topic",
+  "url" : "\/documentation\/mocks"
+},
+"doc://Mocks/documentation/Mocks/MockURLSession": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "MockURLSession"
+    }
+  ],
+  "identifier" : "doc:\/\/Mocks\/documentation\/Mocks\/MockURLSession",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "MockURLSession"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "MockURLSession",
+  "type" : "topic",
+  "url" : "\/documentation\/mocks\/mockurlsession"
+},
+"doc://Mocks/documentation/Mocks/MockURLSession/nextDataTask": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "nextDataTask"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:5Mocks22MockURLSessionDataTaskC",
+      "text" : "MockURLSessionDataTask"
+    }
+  ],
+  "identifier" : "doc:\/\/Mocks\/documentation\/Mocks\/MockURLSession\/nextDataTask",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "nextDataTask",
+  "type" : "topic",
+  "url" : "\/documentation\/mocks\/mockurlsession\/nextdatatask"
+},
+"doc://Mocks/documentation/Mocks/MockURLSessionDataTask": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "MockURLSessionDataTask"
+    }
+  ],
+  "identifier" : "doc:\/\/Mocks\/documentation\/Mocks\/MockURLSessionDataTask",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "MockURLSessionDataTask"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "MockURLSessionDataTask",
+  "type" : "topic",
+  "url" : "\/documentation\/mocks\/mockurlsessiondatatask"
+}
+}
+}

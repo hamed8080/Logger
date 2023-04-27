@@ -1,0 +1,306 @@
+{
+  "abstract" : [
+    {
+      "text" : "Inherited from ",
+      "type" : "text"
+    },
+    {
+      "code" : "URLSessionProtocol.dataTask(_:completionHandler:)",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/Mocks\/documentation\/Mocks",
+        "doc:\/\/Mocks\/documentation\/Mocks\/MockURLSession"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/Mocks\/documentation\/Mocks\/MockURLSession\/dataTask(_:completionHandler:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:5Mocks14MockURLSessionC8dataTask_17completionHandler8Additive0c4DataE8Protocol_p10Foundation10URLRequestV_yAH0I0VSg_So13NSURLResponseCSgs5Error_pSgtctF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "dataTask"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:10Foundation10URLRequestV",
+        "text" : "URLRequest"
+      },
+      {
+        "kind" : "text",
+        "text" : ", "
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "completionHandler"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:8Additive18URLSessionProtocolP14CompletionTypea",
+        "text" : "CompletionType"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:8Additive26URLSessionDataTaskProtocolP",
+        "text" : "URLSessionDataTaskProtocol"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "Mocks"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "dataTask(_:completionHandler:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "iOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "dataTask"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "_"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "request"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:10Foundation10URLRequestV",
+              "text" : "URLRequest"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "completionHandler"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "attribute",
+              "text" : "@escaping"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:8Additive18URLSessionProtocolP14CompletionTypea",
+              "text" : "CompletionType"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:8Additive26URLSessionDataTaskProtocolP",
+              "text" : "URLSessionDataTaskProtocol"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/mocks\/mockurlsession\/datatask(_:completionhandler:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://Mocks/documentation/Mocks": {
+  "abstract" : [
+    {
+      "text" : "Mocks is consist of protocols that force you to use them for injection in your classes for the soul of unit-testing.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/Mocks\/documentation\/Mocks",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Mocks",
+  "type" : "topic",
+  "url" : "\/documentation\/mocks"
+},
+"doc://Mocks/documentation/Mocks/MockURLSession": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "MockURLSession"
+    }
+  ],
+  "identifier" : "doc:\/\/Mocks\/documentation\/Mocks\/MockURLSession",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "MockURLSession"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "MockURLSession",
+  "type" : "topic",
+  "url" : "\/documentation\/mocks\/mockurlsession"
+},
+"doc://Mocks/documentation/Mocks/MockURLSession/dataTask(_:completionHandler:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "dataTask"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:10Foundation10URLRequestV",
+      "text" : "URLRequest"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "completionHandler"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:8Additive18URLSessionProtocolP14CompletionTypea",
+      "text" : "CompletionType"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:8Additive26URLSessionDataTaskProtocolP",
+      "text" : "URLSessionDataTaskProtocol"
+    }
+  ],
+  "identifier" : "doc:\/\/Mocks\/documentation\/Mocks\/MockURLSession\/dataTask(_:completionHandler:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "dataTask(_:completionHandler:)",
+  "type" : "topic",
+  "url" : "\/documentation\/mocks\/mockurlsession\/datatask(_:completionhandler:)"
+}
+}
+}

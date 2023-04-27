@@ -1,0 +1,141 @@
+{
+  "interfaceLanguages" : {
+    "swift" : [
+      {
+        "children" : [
+          {
+            "title" : "Classes",
+            "type" : "groupMarker"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Initializers",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mocktimer\/init()",
+                "title" : "init()",
+                "type" : "init"
+              },
+              {
+                "title" : "Instance Properties",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mocktimer\/blockresult",
+                "title" : "var blockResult: ((TimerProtocol) -> Void)?",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mocktimer\/isvalid",
+                "title" : "var isValid: Bool",
+                "type" : "property"
+              },
+              {
+                "title" : "Instance Methods",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mocktimer\/fire()",
+                "title" : "func fire()",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mocktimer\/invalidatetimer()",
+                "title" : "func invalidateTimer()",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mocktimer\/scheduledtimer(interval:repeats:block:)",
+                "title" : "func scheduledTimer(interval: TimeInterval, repeats: Bool, block: (TimerProtocol) -> Void) -> TimerProtocol",
+                "type" : "method"
+              }
+            ],
+            "path" : "\/documentation\/mocks\/mocktimer",
+            "title" : "MockTimer",
+            "type" : "class"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Initializers",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mockurlsession\/init()",
+                "title" : "init()",
+                "type" : "init"
+              },
+              {
+                "title" : "Instance Properties",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mockurlsession\/data",
+                "title" : "var data: Data?",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mockurlsession\/error",
+                "title" : "var error: Error?",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mockurlsession\/nextdatatask",
+                "title" : "var nextDataTask: MockURLSessionDataTask",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mockurlsession\/response",
+                "title" : "var response: HTTPURLResponse?",
+                "type" : "property"
+              },
+              {
+                "title" : "Instance Methods",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mockurlsession\/datatask(_:completionhandler:)",
+                "title" : "func dataTask(URLRequest, completionHandler: CompletionType) -> URLSessionDataTaskProtocol",
+                "type" : "method"
+              }
+            ],
+            "path" : "\/documentation\/mocks\/mockurlsession",
+            "title" : "MockURLSession",
+            "type" : "class"
+          },
+          {
+            "children" : [
+              {
+                "title" : "Instance Methods",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mockurlsessiondatatask\/cancel()",
+                "title" : "func cancel()",
+                "type" : "method"
+              },
+              {
+                "path" : "\/documentation\/mocks\/mockurlsessiondatatask\/resume()",
+                "title" : "func resume()",
+                "type" : "method"
+              }
+            ],
+            "path" : "\/documentation\/mocks\/mockurlsessiondatatask",
+            "title" : "MockURLSessionDataTask",
+            "type" : "class"
+          }
+        ],
+        "path" : "\/documentation\/mocks",
+        "title" : "Mocks",
+        "type" : "module"
+      }
+    ]
+  },
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 1,
+    "patch" : 1
+  }
+}
