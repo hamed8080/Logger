@@ -8,6 +8,8 @@
 
 source $(dirname $0)/environment+variables.sh
 
+rm -r ".build"
+rm -r ".swiftpm"
 rm -r "${RESULT_BUNDLE_PATH}"
 
 xcodebuild test \
