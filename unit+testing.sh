@@ -22,7 +22,9 @@ xcodebuild test \
 CODE_SIGN_IDENTITY="" \
 CODE_SIGN_ENTITLEMENTS="" \
 CODE_SIGNING_REQUIRED="NO" \
-CODE_SIGNING_ALLOWED="NO" | xcpretty && exit ${PIPESTATUS[0]} \
+CODE_SIGNING_ALLOWED="NO"
+
+#| xcpretty && exit ${PIPESTATUS[0]} \
 #-derivedDataPath .build/derivedDataPath \
 
 #curl -Os https://uploader.codecov.io/latest/macos/codecov
