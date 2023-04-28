@@ -123,7 +123,7 @@ final class LoggerTests: XCTestCase, LogDelegate {
         mockTimer.fire()
 
         // Then
-        wait(for: [expectation])
+        wait(for: [expectation], timeout: 0)
     }
 
     private func makeRequest<T: Encodable>(request: URLRequest, type: T.Type) -> String {
@@ -147,7 +147,7 @@ final class LoggerTests: XCTestCase, LogDelegate {
         sut.logHTTPRequest(req, String(describing: String.self), persist: true, type: .sent)
         // Then
         let output = makeRequest(request: req, type: String.self)
-        wait(for: [logExpectation!])
+        wait(for: [logExpectation!], timeout: 0)
         XCTAssertEqual(logResult?.message, output)
     }
 
@@ -171,7 +171,7 @@ final class LoggerTests: XCTestCase, LogDelegate {
         sut.logHTTPResponse(data, HTTPURLResponse.defaultSuccess(request: request), nil, persist: true, type: .received)
         // Then
         let output = makeResponse(data: data)
-        wait(for: [logExpectation!])
+        wait(for: [logExpectation!], timeout: 0)
         XCTAssertEqual(logResult?.message, output)
     }
 
@@ -185,7 +185,7 @@ final class LoggerTests: XCTestCase, LogDelegate {
         sut.logHTTPResponse(data, HTTPURLResponse.defaultSuccess(request: request), error, persist: true, type: .received)
         // Then
         let output = makeResponse(data: data, withError: error)
-        wait(for: [logExpectation!])
+        wait(for: [logExpectation!], timeout: 0)
         XCTAssertEqual(logResult?.level, .error)
         XCTAssertEqual(logResult?.message, output)
     }
@@ -224,7 +224,7 @@ final class LoggerTests: XCTestCase, LogDelegate {
         Logger.clear(prefix: sut.config.prefix) {
             expectation.fulfill()
         }
-        wait(for: [expectation])
+        wait(for: [expectation], timeout: 1)
         // Then
         let afetrCount = (try? sut.persistentManager.context?.fetch(req).count) ?? 0
         XCTAssertLessThanOrEqual(afetrCount, beforeCount)

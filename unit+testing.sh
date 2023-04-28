@@ -8,14 +8,12 @@
 
 source $(dirname $0)/environment+variables.sh
 
-# rm -r ".build"
-# rm -r ".swiftpm"
-# rm -r "${RESULT_BUNDLE_PATH}"
+rm -r "${RESULT_BUNDLE_PATH}"
 
 xcodebuild test \
 -scheme "${TARGET_NAME}" \
 -sdk iphonesimulator \
--destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' \
+-destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4' \
 -enableCodeCoverage YES \
 -testPlan "${TARGET_NAME}" \
 -resultBundlePath "${RESULT_BUNDLE_PATH}" \
