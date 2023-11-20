@@ -24,36 +24,48 @@ public final class Logger {
     }
 
     public func logJSON(title: String = "", jsonString: String = "", persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        createLog(message: "\(config.prefix): \(title)\(jsonString != "" ? "\n" : "")\(jsonString.prettyJsonString())", persist: persist, type: type, userInfo: userInfo)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            createLog(message: "\(config.prefix): \(title)\(jsonString != "" ? "\n" : "")\(jsonString.prettyJsonString())", persist: persist, type: type, userInfo: userInfo)
+        }
     }
 
     public func log(title: String = "", message: String = "", persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        createLog(message: "\(config.prefix): \(title)\(message != "" ? "\n" : "")\(message)", persist: persist, type: type, userInfo: userInfo)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            createLog(message: "\(config.prefix): \(title)\(message != "" ? "\n" : "")\(message)", persist: persist, type: type, userInfo: userInfo)
+        }
     }
 
     public func logHTTPRequest(_ request: URLRequest, _ decodeType: String, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        var output = "Start Of Request====\n"
-        output += " REST Request With Method:\(request.method.rawValue) - url:\(request.url?.absoluteString ?? "")\n"
-        output += " With Headers:\(request.allHTTPHeaderFields?.debugDescription ?? "[]")\n"
-        output += " With HttpBody:\(request.httpBody?.string ?? "nil")\n"
-        output += " Expected DecodeType:\(decodeType)\n"
-        output += "End Of Request====\n"
-        output += "\n"
-        log(message: output, persist: persist, type: type, userInfo: userInfo)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            var output = "Start Of Request====\n"
+            output += " REST Request With Method:\(request.method.rawValue) - url:\(request.url?.absoluteString ?? "")\n"
+            output += " With Headers:\(request.allHTTPHeaderFields?.debugDescription ?? "[]")\n"
+            output += " With HttpBody:\(request.httpBody?.string ?? "nil")\n"
+            output += " Expected DecodeType:\(decodeType)\n"
+            output += "End Of Request====\n"
+            output += "\n"
+            log(message: output, persist: persist, type: type, userInfo: userInfo)
+        }
     }
 
     public func logHTTPResponse(_ data: Data?, _ response: URLResponse?, _ error: Error?, persist: Bool, type: LogEmitter, userInfo: [String: String]? = nil) {
-        var output = "Start Of Response====\n"
-        output += " REST Response For url:\(response?.url?.absoluteString ?? "")\n"
-        output += " With Data Result in Body:\(data?.utf8String ?? "nil")\n"
-        output += "End Of Response====\n"
-        output += "\n"
-        output += "Error:\(error?.localizedDescription ?? "nil")"
-        if error != nil {
-            let output = "\(config.prefix): \n\(output)"
-            createLog(message: output, persist: persist, level: .error, type: type, userInfo: userInfo)
-        } else {
-            log(message: output, persist: persist, type: type, userInfo: userInfo)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            var output = "Start Of Response====\n"
+            output += " REST Response For url:\(response?.url?.absoluteString ?? "")\n"
+            output += " With Data Result in Body:\(data?.utf8String ?? "nil")\n"
+            output += "End Of Response====\n"
+            output += "\n"
+            output += "Error:\(error?.localizedDescription ?? "nil")"
+            if error != nil {
+                let output = "\(config.prefix): \n\(output)"
+                createLog(message: output, persist: persist, level: .error, type: type, userInfo: userInfo)
+            } else {
+                log(message: output, persist: persist, type: type, userInfo: userInfo)
+            }
         }
     }
 
@@ -108,7 +120,7 @@ public final class Logger {
     }
 
     private func deleteLogFromCache(log: CDLog, context: NSManagedObjectContext) {
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
             CDLog.delete(logger: self, context: context, logs: [log])
         }
