@@ -128,7 +128,9 @@ public final class Logger {
 
     private func addLogToCache(_ log: Log) {
         guard let context = persistentManager.context else { return }
-        CDLog.insert(self, context, [log])
+        DispatchQueue.main.async(qos: .background) {
+            CDLog.insert(self, context, [log])
+        }
     }
 
     public class func clear(prefix: String, completion: (() -> Void)? = nil) {
