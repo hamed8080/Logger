@@ -136,4 +136,8 @@ public final class Logger {
     public class func clear(prefix: String, completion: (() -> Void)? = nil) {
         CDLog.clear(prefix: prefix, completion: completion)
     }
+
+    public func dispose() {
+        timer.invalidateTimer()
+    }
 }
