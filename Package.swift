@@ -17,8 +17,8 @@ let package = Package(
             targets: ["Logger"]),
     ],
     dependencies: [
-        .package(url: "https://pubgi.fanapsoft.ir/chat/ios/additive", from: "1.2.0"),
-        .package(url: "https://pubgi.fanapsoft.ir/chat/ios/mocks", from: "1.2.0"),
+        .package(url: "https://pubgi.sandpod.ir/chat/ios/additive", from: "1.2.1"),
+        .package(url: "https://pubgi.sandpod.ir/chat/ios/mocks", from: "1.2.1"),
         .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
     ],
     targets: [
