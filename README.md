@@ -18,7 +18,7 @@
 Add in `Package.swift` or directly in `Xcode Project dependencies` section:
 
 ```swift
-.package(url: "https://github.com/hamed8080/logger.git", .upToNextMinor(from: "1.0.2")),
+.package(url: "https://github.com/hamed8080/logger.git", .upToNextMinor(from: "1.2.1")),
 ```
 
 #### [CocoaPods](https://cocoapods.org) 
@@ -26,7 +26,7 @@ Add in `Package.swift` or directly in `Xcode Project dependencies` section:
 Add in `Podfile`:
 
 ```ruby
-pod 'Logger', :git => 'http://pubgi.fanapsoft.ir/chat/ios/logger.git', :tag => '1.0.2'
+pod 'Logger', :git => 'http://pubgi.sandpod.ir/chat/ios/logger.git', :tag => '1.2.1'
 ```
 <br/>
 
