@@ -27,8 +27,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Additive", package: "Additive"),
                 .product(name: "Mocks", package: "Mocks"),
-            ],
-            resources: [.process("Resources")]
+            ]
         ),
         .testTarget(
             name: "LoggerTests",

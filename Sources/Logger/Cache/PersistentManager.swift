@@ -11,9 +11,9 @@ public final class PersistentManager {
     let baseModelFileName = "Logger"
     var container: NSPersistentContainer?
 
-    init() {
+    init(bundle: Bundle) {
         do {
-            try loadContainer()
+            try loadContainer(bundle: bundle)
         } catch {
             print(error)
         }
@@ -33,14 +33,14 @@ public final class PersistentManager {
         return bgTask
     }
 
-    func modelFile() throws -> NSManagedObjectModel {
-        guard let modelURL = Bundle.moduleBundle.url(forResource: baseModelFileName, withExtension: "momd") else { throw LoggerError.momdFile }
+    func modelFile(bundle: Bundle) throws -> NSManagedObjectModel {
+        guard let modelURL = bundle.url(forResource: baseModelFileName, withExtension: "momd") else { throw LoggerError.momdFile }
         guard let mom = NSManagedObjectModel(contentsOf: modelURL) else { throw LoggerError.modelFile }
         return mom
     }
 
-    func loadContainer() throws {
-        let container = NSPersistentContainer(name: "\(baseModelFileName)", managedObjectModel: try modelFile())
+    func loadContainer(bundle: Bundle) throws {
+        let container = NSPersistentContainer(name: "\(baseModelFileName)", managedObjectModel: try modelFile(bundle: bundle))
         container.loadPersistentStores { desc, error in
             if let error = error {
                 print("error load CoreData persistentstore des:\(desc) error: \(error)")

@@ -84,8 +84,8 @@ public extension CDLog {
         }
     }
 
-    internal class func clear(prefix: String?, completion: (() -> Void)? = nil) {
-        let persistentManager = PersistentManager()
+    internal class func clear(prefix: String?, bundle: Bundle, completion: (() -> Void)? = nil) {
+        let persistentManager = PersistentManager(bundle: bundle)
         let context = persistentManager.newBgTask
         context?.perform {
             let req = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)

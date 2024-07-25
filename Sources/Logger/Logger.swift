@@ -13,9 +13,10 @@ public final class Logger {
     internal var config: LoggerConfig
     private var timer: TimerProtocol
     private var urlSession: URLSessionProtocol
-    internal let persistentManager = PersistentManager()
+    internal let persistentManager: PersistentManager
 
-    public init(config: LoggerConfig, delegate: LogDelegate? = nil, timer: TimerProtocol = Timer(), urlSession: URLSessionProtocol = URLSession.shared) {
+    public init(config: LoggerConfig, delegate: LogDelegate? = nil, timer: TimerProtocol = Timer(), urlSession: URLSessionProtocol = URLSession.shared, bundle: Bundle = .main) {
+        persistentManager = PersistentManager(bundle: bundle)
         self.config = config
         self.delegate = delegate
         self.timer = timer
@@ -133,8 +134,8 @@ public final class Logger {
         }
     }
 
-    public class func clear(prefix: String, completion: (() -> Void)? = nil) {
-        CDLog.clear(prefix: prefix, completion: completion)
+    public class func clear(prefix: String, bundle: Bundle, completion: (() -> Void)? = nil) {
+        CDLog.clear(prefix: prefix, bundle: bundle, completion: completion)
     }
 
     public func dispose() {
