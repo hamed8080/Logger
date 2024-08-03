@@ -3,6 +3,20 @@
 
 import PackageDescription
 
+let useLocalDependency = true
+
+let local: [Package.Dependency] = [
+    .package(path: "../Additive"),
+    .package(path: "../Mocks"),
+    .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
+]
+
+let remote: [Package.Dependency] = [
+    .package(url: "https://pubgi.sandpod.ir/chat/ios/additive", from: "1.2.2"),
+    .package(url: "https://pubgi.sandpod.ir/chat/ios/mocks", from: "1.2.3"),
+    .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
+]
+
 let package = Package(
     name: "Logger",    
     defaultLocalization: "en",
@@ -16,31 +30,21 @@ let package = Package(
             name: "Logger",
             targets: ["Logger"]),
     ],
-    dependencies: [
-//        .package(url: "https://pubgi.sandpod.ir/chat/ios/additive", from: "1.2.2"),
-//        .package(url: "https://pubgi.sandpod.ir/chat/ios/mocks", from: "1.2.3"),
-        .package(path: "../Additive"),
-        .package(path: "../Mocks"),
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
-    ],
+    dependencies: useLocalDependency ? local : remote,
     targets: [
         .target(
             name: "Logger",
             dependencies: [
-//                .product(name: "Additive", package: "additive"),
-//                .product(name: "Mocks", package: "mocks"),
-                .product(name: "Additive", package: "Additive"),
-                .product(name: "Mocks", package: "Mocks"),
+                .product(name: "Additive", package: useLocalDependency ? "Additive" : "additive"),
+                .product(name: "Mocks", package: useLocalDependency ? "Mocks" : "mocks"),
             ],
             resources: [.process("Resources")]
         ),
         .testTarget(
             name: "LoggerTests",
             dependencies: [
-//                .product(name: "Additive", package: "additive"),
-//                .product(name: "Mocks", package: "mocks"),
-                .product(name: "Additive", package: "Additive"),
-                .product(name: "Mocks", package: "Mocks"),
+                .product(name: "Additive", package: useLocalDependency ? "Additive" : "additive"),
+                .product(name: "Mocks", package: useLocalDependency ? "Mocks" : "mocks"),
                 "Logger",
             ]
         ),
