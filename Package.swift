@@ -3,7 +3,7 @@
 
 import PackageDescription
 
-let useLocalDependency = true
+let useLocalDependency = false
 
 let local: [Package.Dependency] = [
     .package(path: "../Additive"),
@@ -12,8 +12,8 @@ let local: [Package.Dependency] = [
 ]
 
 let remote: [Package.Dependency] = [
-    .package(url: "https://pubgi.sandpod.ir/chat/ios/additive", from: "1.2.2"),
-    .package(url: "https://pubgi.sandpod.ir/chat/ios/mocks", from: "1.2.3"),
+    .package(url: "https://pubgi.sandpod.ir/chat/ios/additive", from: "1.2.3"),
+    .package(url: "https://pubgi.sandpod.ir/chat/ios/mocks", from: "1.2.4"),
     .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
 ]
 
