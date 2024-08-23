@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Logger"
-  s.version      = "1.2.2"
+  s.version      = "1.2.3"
   s.summary      = "Logger SDK"
   s.description  = "Logging on a log server or device in a unified manner."
   s.homepage     = "https://pubgi.sandpod.ir/chat/ios/logger"

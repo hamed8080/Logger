@@ -6,7 +6,7 @@
 
 import Foundation
 
-public final class Log: Codable, Identifiable, Hashable {
+public struct Log: Codable, Identifiable, Hashable {
     public static func == (lhs: Log, rhs: Log) -> Bool {
         lhs.id == rhs.id
     }
@@ -33,7 +33,7 @@ public final class Log: Codable, Identifiable, Hashable {
         case userInfo
     }
 
-    public required init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try? decoder.container(keyedBy: CodingKeys.self)
         prefix = try container?.decodeIfPresent(String.self, forKey: .prefix)
         id = UUID(uuidString: try container?.decodeIfPresent(String.self, forKey: .id) ?? "") ?? UUID()
